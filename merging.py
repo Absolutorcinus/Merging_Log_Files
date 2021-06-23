@@ -5,6 +5,7 @@ from os import path
 import  csv
 from datetime import datetime
 
+#Scratch version. 
 
 #to check if a file exists in a path true if yes false if no
 path.exists('/var/log/TMStomV2_...') #true or false
@@ -23,11 +24,11 @@ with open("out.csv","w") as f:
 
 ######################################################################################
 #this function will provide us the lastest folder or file
-#global_path = '/var/log/TMStomV2_/r7ex/cc3r6e1/*'
+#global_path = '/var/log/*'
 def get_last_file(global_path):
-    list_of_static_folders_h5 = ['h51-intranetsf-0', 'h53-intranetsf-0', 'h5c-intranetsf-0', 'h54-intranetsf-0']
+    list_of_static_folders_h5 = ['1-intra', '3-intran', 'c-intran', '4-intran']
     list_of_folders = glob.glob(global_path)
-    path_of_latest_global_folder = max(list_of_folders, key=os.path.getctime) #<type 'str'>  we get this output: /var/log/TMStomV2_...
+    path_of_latest_global_folder = max(list_of_folders, key=os.path.getctime) #<type 'str'>  we get this output: /var/log/T...
     list_of_the_latests_h5_folders = [path_of_latest_global_folder+'/'+ sub+'/*' for sub in list_of_static_folders_h5] #CHECKED 18/06/21 17:26
 
     #list_of_log_files = [glob.glob(latest_h5_folder) for latest_h5_folder in list_of_the_latests_h5_folders]
